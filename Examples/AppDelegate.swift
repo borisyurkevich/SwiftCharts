@@ -69,8 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     fileprivate func setSplitSwipeEnabled(_ enabled: Bool) {
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-            let splitViewController = UIApplication.shared.delegate?.window!!.rootViewController as! UISplitViewController
-            splitViewController.presentsWithGesture = enabled
+//            let splitViewController = UIApplication.shared.delegate?.window!!.rootViewController as! UISplitViewController
+//            splitViewController.presentsWithGesture = enabled
         }
     }
     
@@ -89,8 +89,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 extension UISplitViewController {
     func toggleMasterView() {
         if #available(iOS 8.0, *) {
-            let barButtonItem = self.displayModeButtonItem
-            UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
+//            let barButtonItem = self.displayModeButtonItem
+//            UIApplication.shared.sendAction(barButtonItem.action!, to: barButtonItem.target, from: nil, for: nil)
         }
     }
 }

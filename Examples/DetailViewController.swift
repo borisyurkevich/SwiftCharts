@@ -118,8 +118,8 @@ class DetailViewController: UIViewController, UISplitViewControllerDelegate {
     
     fileprivate func setSplitSwipeEnabled(_ enabled: Bool) {
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-            let splitViewController = UIApplication.shared.delegate?.window!!.rootViewController as! UISplitViewController
-            splitViewController.presentsWithGesture = enabled
+//            let splitViewController = UIApplication.sharedApplication.delegate?.window!!.rootViewController as! UISplitViewController
+//            splitViewController.presentsWithGesture = enabled
         }
     }
 }
