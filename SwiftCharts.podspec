@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
   s.authors = { "Ivan Schuetz" => "ivanschuetz@gmail.com"} 
   s.ios.deployment_target = "9.0"
-  s.source = { :git => "https://github.com/grafiti-io/SwiftCharts.git", :tag => s.version, :branch => 'master' }
+  s.source = { :git => "git@github.com:borisyurkevich/SwiftCharts.git", :tag => s.version, :branch => 'master' }
   s.source_files = 'SwiftCharts/*.swift', 'SwiftCharts/**/*.swift'
   s.frameworks = "Foundation", "UIKit", "CoreGraphics"
 end
