@@ -56,6 +56,8 @@ open class ChartAxisModel {
 
     /// Convenience initializer to pass a fixed axis value array. The array is mapped to axis values and label generators. 
     public convenience init(axisValues: [ChartAxisValue], lineColor: UIColor = UIColor.black, axisTitleLabels: [ChartAxisLabel] = [], labelsConflictSolver: ChartAxisLabelsConflictSolver? = nil, leadingPadding: ChartAxisPadding = .none, trailingPadding: ChartAxisPadding = .none, labelSpaceReservationMode: AxisLabelsSpaceReservationMode = .minPresentedSize, clipContents: Bool = false) {
+        precondition(!axisValues.isEmpty, "Axis cannot be empty")
+        
         var scalars: [Double] = []
         var dict = [Double: [ChartAxisLabel]]()
         for axisValue in axisValues {
@@ -65,7 +67,7 @@ open class ChartAxisModel {
             }
 
         }
-        let (firstModelValue, lastModelValue) = axisValues.isEmpty ? (0, 0) : (axisValues.first!.scalar, axisValues.last!.scalar)
+        let (firstModelValue, lastModelValue) = (axisValues.first!.scalar, axisValues.last!.scalar)
         
         let fixedArrayGenerator = ChartAxisValuesGeneratorFixed(values: scalars)
         let fixedLabelGenerator = ChartAxisLabelsGeneratorFixed(dict: dict)
@@ -90,5 +92,17 @@ open class ChartAxisModel {
         self.trailingPadding = trailingPadding
         self.labelSpaceReservationMode = labelSpaceReservationMode
         self.clipContents = clipContents
+    }
+}
+
+extension ChartAxisModel: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return [
+            "firstModelValue": firstModelValue,
+            "lastModelValue": lastModelValue,
+            "axisTitleLabels": axisTitleLabels,
+            
+        ]
+            .debugDescription
     }
 }

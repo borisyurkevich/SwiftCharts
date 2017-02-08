@@ -76,12 +76,12 @@ class MultiTrackerExample: UIViewController, UIGestureRecognizerDelegate {
     
     fileprivate var bottomChart: Chart?
     
-    fileprivate lazy var chartPanGestureRecognizer = UIPanGestureRecognizer()
+    fileprivate lazy private(set) var chartPanGestureRecognizer = UIPanGestureRecognizer()
     
     // MARK: – Chart configuration
     
-    fileprivate lazy var chartSettings: ChartSettings = {
-        let chartSettings = ChartSettings()
+    fileprivate lazy private(set) var chartSettings: ChartSettings = {
+        var chartSettings = ChartSettings()
         chartSettings.top = 12
         chartSettings.bottom = 0
         chartSettings.trailing = 8
@@ -94,7 +94,7 @@ class MultiTrackerExample: UIViewController, UIGestureRecognizerDelegate {
     
     private let guideLinesLayerSettings: ChartGuideLinesLayerSettings = ChartGuideLinesLayerSettings()
     
-    fileprivate lazy var axisLineColor = UIColor.clear
+    fileprivate lazy private(set) var axisLineColor = UIColor.clear
     
     fileprivate var xAxisValues: [ChartAxisValue]? {
         didSet {
